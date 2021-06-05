@@ -17,6 +17,8 @@ class CreateRepliesTable extends Migration
             $table->id();
             $table->text('content');
             $table->timestamps();
+            $table->foreignId('comment_id')->constrained('comments')->onDelete('cascade');
+            $table-> foreignId('parent_comment_id')->nullable()->constrained('replies')->onDelete('cascade');
         });
     }
 
