@@ -46,7 +46,7 @@ class ReplyController extends Controller
      */
     public function show(Reply $reply)
     {
-        $reply->load('allReplies');
+        return $reply->load('allReplies');
     }
 
     /**
@@ -80,6 +80,6 @@ class ReplyController extends Controller
      */
     public function destroy(Reply $reply)
     {
-        $reply->delete();
+        return $reply->delete();
     }
 }
