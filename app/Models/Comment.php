@@ -9,6 +9,10 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'content'
+    ];
+
     /**
      * Get the post that owns the comment.
      */
@@ -24,4 +28,13 @@ class Comment extends Model
     {
         return $this->hasMany(Reply::class);
     }
+
+    /**
+     * Get the baseReplies for the comment.
+     */
+    public function baseReplies()
+    {
+        return $this->replies()->whereNull('parent_comment_id');
+    }
+
 }
