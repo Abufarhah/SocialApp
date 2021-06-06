@@ -69,7 +69,7 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        $comment->update($request->all());
+        return $comment->update($request->all());
     }
 
     /**
@@ -80,6 +80,6 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        $comment->delete();
+        return $comment->delete();
     }
 }

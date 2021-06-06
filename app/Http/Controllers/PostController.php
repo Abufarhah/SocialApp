@@ -73,7 +73,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $post->update($request->all());
+        return $post->update($request->all());
     }
 
     /**
@@ -84,6 +84,6 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $post->delete();
+        return $post->delete();
     }
 }
