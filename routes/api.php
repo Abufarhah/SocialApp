@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReplyController;
@@ -26,3 +27,7 @@ Route::resource('comments', CommentController::class);
 Route::resource('replies', ReplyController::class);
 Route::resource('posts.comments',CommentController::class);
 Route::resource('comments.replies',CommentController::class);
+
+Route::post('register',[AuthController::class,'register']);
+Route::get('login',[AuthController::class,'login'])->name('login');
+Route::middleware('auth:api')->get('test', [AuthController::class,'test']);
